@@ -16,7 +16,7 @@ node {
     stage("Deploy")  {
         build job: 'CD_VIEW',
             parameters: [
-                [name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
+                [$class: 'StringParameterValue', name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
         ]
     }
 }
