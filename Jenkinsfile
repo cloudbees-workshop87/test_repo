@@ -14,7 +14,7 @@ pipeline {
 // Script //
 node {
     stage("Deploy")  {
-        build job: 'CD_VIEW',
+        build job: 'CD_View',
             parameters: [
                 [$class: 'StringParameterValue', name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
         ]
