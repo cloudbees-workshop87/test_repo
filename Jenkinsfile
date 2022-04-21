@@ -13,8 +13,10 @@ pipeline {
 
 // Script //
 node {
-    stage("Example")  {
-        echo 'Hello World'
-        publishEvent event: jsonEvent('{"event":"helloWorld"}')
+    stage("Deploy")  {
+        build job: 'CD_VIEW',
+            parameters: [
+                [name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
+        ]
     }
 }
