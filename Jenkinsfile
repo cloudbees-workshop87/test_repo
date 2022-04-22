@@ -7,7 +7,7 @@ pipeline {
     steps {
         script {
             def oldJson = '''
-    { "appname": app1,
+    { "appname": "app1",
       "approver": ["gdh","gow"]
     }'''
             def props = readJSON text: oldJson
