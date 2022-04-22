@@ -1,22 +1,27 @@
+import groovy.json.JsonSlurper
 pipeline {
     agent any
 
     stages {
-        stage('Example') {
+        stage('readjson') {
             steps {
                 echo 'sending helloWorld'
-                publishEvent simpleEvent('helloWorld')
+                JsonSlurper jsonSlurper = new JsonSlurper()
+String allDataType = '''
+{ "simple": 123,
+"fraction": 123.66,
+"exponential": 123e12,
+"null":null,
+"boolean":true
+}'''
+
+Object result2 = jsonSlurper.parseText(allDataType )
+println (result2.keySet())
+                
             }
         }
     }
 }
 
-// Script //
-node {
-    stage("Deploy")  {
-        build job: 'testing_job/CD_View',
-            parameters: [
-                [$class: 'StringParameterValue', name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
-        ]
-    }
-}
+
+
