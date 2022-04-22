@@ -7,9 +7,8 @@ pipeline {
     steps {
         script {
             def oldJson = '''
-    { "simple": 123,
-      "fraction": 123.66,
-      "exponential": 123e12
+    { "appname": app1,
+      "approver": ["gdh","gow"]
     }'''
             def props = readJSON text: oldJson
             //def keyList = props['branch'].keySet()
