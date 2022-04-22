@@ -7,7 +7,7 @@ pipeline {
     steps {
         script {
            
-            def props = readJSON file: "${env.WORKSPACE}\\file.json"
+            def props = readJSON file: "${env.WORKSPACE}//file.json"
             
             echo "$props.approver"
            
