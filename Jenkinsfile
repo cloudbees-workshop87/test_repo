@@ -6,14 +6,11 @@ pipeline {
         stage('Read-JSON') {
     steps {
         script {
-            def oldJson = '''
-    { "appname": "app1",
-      "approver": ["gdh","gow"]
-    }'''
-            def props = readJSON text: oldJson
-            //def keyList = props['branch'].keySet()
+           
+            def props = readJSON file: "${env.WORKSPACE}\\file.json"
+            
             echo "$props.approver"
-            // println(props['branch'].keySet())
+           
 
         }
     }
