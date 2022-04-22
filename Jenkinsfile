@@ -13,7 +13,7 @@ pipeline {
     }'''
             def props = readJSON text: oldJson
             //def keyList = props['branch'].keySet()
-            echo "$props["simple"]"
+            echo "$props.simple"
             // println(props['branch'].keySet())
 
         }
