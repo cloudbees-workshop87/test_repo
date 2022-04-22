@@ -6,7 +6,7 @@ pipeline {
         stage('readjson') {
             steps {
                 echo 'sending helloWorld'
-                JsonSlurper jsonSlurper = new JsonSlurper()
+                def jsonSlurper = new JsonSlurper()
 String allDataType = '''
 { "simple": 123,
 "fraction": 123.66,
@@ -15,7 +15,7 @@ String allDataType = '''
 "boolean":true
 }'''
 
-Object result2 = jsonSlurper.parseText(allDataType )
+Object result2 = jsonSlurper.parseText(allDataType)
 println (result2.keySet())
                 
             }
