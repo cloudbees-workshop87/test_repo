@@ -1,3 +1,4 @@
- { "appname": "app1",
+[ { "appname": "app1",
       "approver": ["gdh","gow"]
     }
+ ]
