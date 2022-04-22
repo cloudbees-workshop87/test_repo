@@ -1,28 +1,24 @@
-import groovy.json.JsonSlurper
-Object result2;
-String allDataType;
-def jsonSlurper;
+
 pipeline {
     agent any
 
     stages {
-        stage('readjson') {
-            steps {
-                echo 'sending helloWorld'
-                jsonSlurper = new JsonSlurper()
-allDataType = '''
-{ "simple": 123,
-"fraction": 123.66,
-"exponential": 123e12,
-"null":null,
-"boolean":true
-}'''
+        stage('Read-JSON') {
+    steps {
+        script {
+            def oldJson = '''{
+            "branch":{
+                "type-0.2":{"version":"0.2","rc":"1","rel":"1","extras":"1"},
+                "type-0.3":{"version":"0.3","rc":"1","rel":"1","extras":"1"}
+                }
+            }'''
+            def props = readJSON text: oldJson
+            def keyList = props['branch'].keySet()
+            echo "${keyList}"
+            // println(props['branch'].keySet())
 
-result2 = jsonSlurper.parseText(allDataType)
-println (result2.keySet())
-                
-            }
         }
+    }
     }
 }
 
