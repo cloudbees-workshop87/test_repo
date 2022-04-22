@@ -1,4 +1,7 @@
 import groovy.json.JsonSlurper
+Object result2;
+String allDataType;
+def jsonSlurper;
 pipeline {
     agent any
 
@@ -6,8 +9,8 @@ pipeline {
         stage('readjson') {
             steps {
                 echo 'sending helloWorld'
-                def jsonSlurper = new JsonSlurper()
-String allDataType = '''
+                jsonSlurper = new JsonSlurper()
+allDataType = '''
 { "simple": 123,
 "fraction": 123.66,
 "exponential": 123e12,
@@ -15,7 +18,7 @@ String allDataType = '''
 "boolean":true
 }'''
 
-Object result2 = jsonSlurper.parseText(allDataType)
+result2 = jsonSlurper.parseText(allDataType)
 println (result2.keySet())
                 
             }
