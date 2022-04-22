@@ -7,14 +7,14 @@ pipeline {
     steps {
         script {
             def oldJson = '''{
-            "branch":{
-                "name":{"app1"},
-                "approver":{"ganga"}
-                }
+            {
+            "smoke": "Test1.js",
+            "default": "Test2.js"
+            }
             }'''
             def props = readJSON text: oldJson
-            def keyList = props['branch'].keySet()
-            echo "${keyList}"
+            //def keyList = props['branch'].keySet()
+            echo "${keySet}"
             // println(props['branch'].keySet())
 
         }
