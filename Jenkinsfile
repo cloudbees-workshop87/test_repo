@@ -10,8 +10,11 @@ pipeline {
             def props = readJSON file: "${env.WORKSPACE}//file.json"
             
             //echo "$props.approver"
-             String var= "$props.approver"
-            echo "$var[0]"
+            echo "$substringAfter("Hello World", " ")"
+            echo "$substringAfter("$props.approver", ",")"
+             //String var= "$props.approver"
+            
+            //echo "$var[0]"
            
 
         }
