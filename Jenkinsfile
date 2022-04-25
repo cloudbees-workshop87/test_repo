@@ -10,7 +10,7 @@ pipeline {
             def props = readJSON file: "${env.WORKSPACE}//file.json"
             
             //echo "$props.approver"
-             String var= JSON.Parse(props);
+             String var= "$props.approver"
             echo "$var[0]"
            
 
