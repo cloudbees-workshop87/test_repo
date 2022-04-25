@@ -1,22 +1,11 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Example') {
+        stage('Python_build') {
             steps {
-                echo 'sending helloWorld'
-                publishEvent simpleEvent('helloWorld')
-            }
+        sh 'python abc.py'
+         }
         }
-    }
-}
-
-// Script //
-node {
-    stage("Deploy")  {
-        build job: 'testing_job/CD_View',
-            parameters: [
-                [$class: 'StringParameterValue', name: 'FROM_BUILD', value: "${BUILD_NUMBER}"]
-        ]
     }
 }
