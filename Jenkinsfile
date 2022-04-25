@@ -11,7 +11,7 @@ pipeline {
             
             //echo "$props.approver"
             echo "$substringAfter("Hello World", " ")"
-            echo "$substringAfter("$props.approver", ",")"
+            //echo "$substringAfter("$props.approver", ",")"
              //String var= "$props.approver"
             
             //echo "$var[0]"
