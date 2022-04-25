@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Python_build') {
             steps {
+                sh 'whoami'
         sh 'python abc.py'
          }
         }
